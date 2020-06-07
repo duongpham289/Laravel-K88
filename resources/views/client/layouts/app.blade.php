@@ -23,7 +23,7 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/custome.css">
-
+    
 
 
 </head>
@@ -156,7 +156,6 @@
             $(`.menu-${pageId}`).parents('li').addClass('active');
         })
     </script>
-    @stack('Js')
 </body>
 
 </html>

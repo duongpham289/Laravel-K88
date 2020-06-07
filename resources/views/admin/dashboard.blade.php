@@ -27,10 +27,8 @@
 							<span class="glyphicon glyphicon-signal icon-50" aria-hidden="true"></span>
 						</div>
 						<div class="col-sm-9 col-lg-8 widget-right">
-                            @if(session()->has('income'))
-                            <div class="large">{{session()->get('income','8.000.000')}} đ</div>
-                            <div class="text-muted">Doanh thu tháng 7</div>
-                            @endif
+							<div class="large">8.000.000 đ</div>
+							<div class="text-muted">Doanh thu tháng 7</div>
 						</div>
 					</div>
 				</div>

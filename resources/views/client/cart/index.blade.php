@@ -136,13 +136,3 @@
 </div>
 
 @endsection
-@push('Js')
-    <script>
-        $(document).ready(function(){
-            $(".closed").on('click',function(e){
-                e.preventDefault()
-                $(this).parents(".product-cart").remove()
-            })
-        })
-    </script>
-@endpush

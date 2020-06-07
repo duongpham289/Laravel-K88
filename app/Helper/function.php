@@ -7,4 +7,3 @@ function showErrors($errors,$name){
                 </div>';
     }
 }
-

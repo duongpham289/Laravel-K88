@@ -25,7 +25,7 @@ class AddUserRequest extends FormRequest
     {
         return [
             'email'=>'required|email',
-            'full'=>'required|min:5',
+            'name'=>'required|min:5',
             'phone'=>'required',
             'address'=>'required|min:8',
             'password'=>'required|min:6',
@@ -36,8 +36,8 @@ class AddUserRequest extends FormRequest
         return [
             'email.required'=>'Không được để trống email',
             'email.email'=>'Email không đúng định dạng',
-            'full.required'=>'Không được để trống Họ và tên',
-            'full.min'=>'Họ tên không được nhỏ hơn 5 ký tự',
+            'name.required'=>'Không được để trống Họ và tên',
+            'name.min'=>'Họ tên không được nhỏ hơn 5 ký tự',
             'phone.required'=>'số điện thoại không được để trống',
             'address.required'=>'địa chỉ không được để trống',
             'address.min'=>'Địa chỉ không được nhỏ hơn 8 ký tự',

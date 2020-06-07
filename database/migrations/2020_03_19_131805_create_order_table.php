@@ -14,15 +14,13 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
-             
             $table->bigIncrements('id');
-            $table->string('full'); 
-            $table->string('address')->nullable();  //cho phép để trống cột address
-            $table->string('email'); 
-            $table->string('phone'); 
-            $table->decimal('total',18);
-            $table->tinyInteger('state')->unsigned(); // state Kiểu tinyInt  Dạng không dấu
-            $table->timestamps(); // Tạo 2 cột created_at, update_at
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('processed')->default(false);
+            $table->timestamps();
         });
     }
 

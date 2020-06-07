@@ -38,7 +38,7 @@
             $(`.menu-${pageId}`).parents('li').addClass('active');
         })
     </script>
-    @stack('adminJs')
+    @stack('adminJS')
 </body>
 
 </html>

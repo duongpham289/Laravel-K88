@@ -13,20 +13,7 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading"><i class="fas fa-user"></i> Thêm thành viên</div>
-
-                    @if ($errors->any())
-
-                    @component('admin.layouts.components.alert')
-                    @slot('type', 'danger')
-                    @slot('stroke', 'cancel')
-                    {{$errors->first()}}
-                    @endcomponent
-
-                    @endif
-
                     <div class="panel-body">
-                        <form action="/admin/users" method="post" enctype="multipart/form-data">
-                            @csrf
                         <div class="row justify-content-center" style="margin-bottom:40px">
 
                             <div class="col-md-8 col-lg-8 col-lg-offset-2">
@@ -34,6 +21,9 @@
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email" class="form-control">
+                                  <div class="alert alert-danger" role="alert">
+                                      <strong>email đã tồn tại!</strong>
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                     <label>password</label>
@@ -72,7 +62,6 @@
                         </div>
 
                         <div class="clearfix"></div>
-                    </form>
                     </div>
                 </div>
 

@@ -1,106 +1,100 @@
-@extends('admin.layouts.app', ['activePage' => 'users', 'title' => 'Danh sách Chuyến bay'])
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-	<!--main-->
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#"><svg class="glyph stroked home">
-							<use xlink:href="#stroked-home"></use>
-						</svg></a></li>
-				<li class="active">Danh sách Chuyến bay</li>
-			</ol>
-		</div>
-		<!--/.row-->
+        <title>Laravel</title>
 
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách Chuyến bay</h1>
-			</div>
-		</div>
-		<!--/.row-->
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-		<div class="row">
-			<div class="col-xs-12 col-md-12 col-lg-12">
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
 
-				<div class="panel panel-primary">
+            .full-height {
+                height: 100vh;
+            }
 
-					<div class="panel-body">
-						<div class="bootstrap-table">
-							<div class="table-responsive">
-								{{-- <div class="alert bg-success" role="alert">
-									<svg class="glyph stroked checkmark">
-										<use xlink:href="#stroked-checkmark"></use>
-									</svg>Đã thêm thành công<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-								</div> --}}
-								{{-- <a href="/admin/users/create" class="btn btn-primary">Thêm Thành viên</a> --}}
-								<table class="table table-bordered" style="margin-top:20px;">
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
 
-									<thead>
-										<tr class="bg-primary">
-											{{-- <th>ID</th> --}}
-											<th>From</th>
-											<th>To</th>
-											<th>Price</th>
-                                            <th>Airlines</th>
-                                            <th>Depature Time</th>
-											{{-- <th width='18%'>Tùy chọn</th> --}}
-										</tr>
-									</thead>
-									<tbody>
-                                        @foreach ($flight as $flight)
+            .position-ref {
+                position: relative;
+            }
 
-                                        <tr>
-											<td>{{ $flight->from }}</td>
-											<td>{{ $flight->to }}</td>
-											<td>{{ $flight->price }}</td>
-											<td>{{ $flight->airline }}</td>
-                                            <td>{{ $flight->depature_time}}</td>
-                                        {{-- <td>{{$user->roles->pluck('name')->implode(', ') ?? ''}}</td> --}}
-											{{-- <td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td> --}}
-                                        </tr>
-                                        @endforeach
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
 
-                                        {{-- <tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Nguyễn thế phúc</td>
-											<td>Thường tín</td>
-                                            <td>0356653300</td>
-                                            <td>1</td>
-											<td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr> --}}
+            .content {
+                text-align: center;
+            }
 
-									</tbody>
-								</table>
-								<div align='right'>
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
+            .title {
+                font-size: 84px;
+            }
 
-					</div>
-				</div>
-				<!--/.row-->
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
 
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
 
-			</div>
-			<!--end main-->
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 
-@endsection
+            <div class="content">
+                <div class="title m-b-md">
+                    Laravel
+                </div>
 
-
-
+                <div class="links">
+                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://blog.laravel.com">Blog</a>
+                    <a href="https://nova.laravel.com">Nova</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://vapor.laravel.com">Vapor</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

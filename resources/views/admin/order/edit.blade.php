@@ -53,7 +53,7 @@
 											<td>
 												<div class="row">
 													<div class="col-md-4">
-														<img width="100px" src="/assets/admin/img/ao-khoac.jpg" class="thumbnail">
+														<img width="100px" src="img/ao-khoac.jpg" class="thumbnail">
 													</div>
 													<div class="col-md-8">
 														<p><b>Mã sản phẩm</b>: SP01</p>
@@ -71,7 +71,7 @@
 											<td>
 												<div class="row">
 													<div class="col-md-4">
-														<img width="100px" src="/assets/admin/img/ao-khoac.jpg" class="thumbnail">
+														<img width="100px" src="img/ao-khoac.jpg" class="thumbnail">
 													</div>
 													<div class="col-md-8">
 														<p><b>Mã sản phẩm</b>: SP02</p>

@@ -9,9 +9,6 @@ class DashboardController extends Controller
 {
     public function __invoke()
     {
-        // session()->put('income','4000000');
-        session()->forget('income');
-
         return view('admin.dashboard');
     }
 }

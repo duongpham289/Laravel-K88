@@ -20,13 +20,13 @@
                             <form action="product/AddCart" method="post">
 
                                 <div class="desc">
-                                    <h3>{{ $product->name }}</h3>
+                                    <h3>Áo Sơ Mi Trắng Kem ASM844</h3>
                                     <p class="price">
-                                        <span>{{ $product->price }} đ</span>
+                                        <span>150,000 đ</span>
                                     </p>
-                                    <p>Thông tin</p>
+                                    <p>thông tin</p>
                                     <p style="text-align: justify;">
-                                        {{ $product->detail }}
+                                        VIETPRO STORE sẽ giao hàng tận nơi khi chọn mua sản phẩm: Áo Sơ Mi Trắng Kem ASM844. Hoặc quí khách có thể đến tại địa chỉ shop có hiển thị bên dưới, khi chọn size phù hợp để xem và thử trực tiếp.
 
                                     </p>
 

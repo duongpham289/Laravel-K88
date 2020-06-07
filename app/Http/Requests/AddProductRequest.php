@@ -24,26 +24,22 @@ class AddProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id'=>'required',
-            'sku'=>'required',
+            'code'=>'required|min:3',
             'name'=>'required|min:3',
             'price'=>'required|numeric',
-            'quantity'=>'required|numeric',
-            'img'=>'sometimes|image', // file phải là định dạng ảnh
+            'img'=>'image', // file phải là định dạng ảnh
         ];
     }
     public function messages()
     {
         return [
-            'category_id.required'=>'Danh mục không được để trống',
-            'sku.required'=>'Mã sản phẩm không được để trống!',
+            'code.required'=>'Mã sản phẩm không được để trống!',
+            'code.min'=>'Mã sản phẩm phải lớn hơn 3 ký tự!',
             'name.required'=>'Tên sản phẩm không được để trống!',
-            'name.min'=>'Tên sản phẩm phải lớn hơn 3 ký tự!',
+            'name.min'=>'Tên sản phẩm phải lớn hơn 3 ký tự!!',
             'price.required'=>'Giá sản phẩm không được để trống!',
-            'price.numeric'=>'Giá sản phẩm phải là số!',
-            'quantity.required'=>'Số lượng không được để trống',
-            'quantity.numeric'=>'Số lượng phải là số!',
-            'img.image'=>'File ảnh không đúng định dạng!',
+            'price.numeric'=>'Giá sản phẩm không đúng định dạng!',
+            'img.image'=>'File Ảnh không đúng định dạng!',
         ];
     }
 }

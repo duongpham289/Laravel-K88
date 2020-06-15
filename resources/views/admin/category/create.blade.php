@@ -22,19 +22,26 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
+                @if ($errors->any())
+
+                @component('admin.layouts.components.alert')
+                @slot('type', 'danger')
+                @slot('stroke', 'cancel')
+                {{$errors->first()}}
+                @endcomponent
+
+                @endif
                 <div class="panel-body">
+
+                    <form action="/admin/category" method="post" enctype="multipart/form-data">
+                        @csrf
                     <div class="row">
                         <div class="col-md-7">
-
                             <div class="form-group">
                                 <label for="">Danh mục cha:</label>
-                                <select class="form-control" name="parent">
-                                    <option>----ROOT----</option>
-                                    <option>Nam</option>
-                                    <option>---|Áo khoác nam</option>
-                                    <option>---|---|Áo khoác nam</option>
-                                    <option selected>Nữ</option>
-                                    <option>---|Áo khoác nữ</option>
+                                <select class="form-control" name="parent_id">
+                                    <option value="0" selected>----ROOT----</option>
+                                    @include('admin.category.option',['level'=>0])
                                 </select>
                             </div>
                             <div class="form-group">
@@ -45,6 +52,7 @@
                             <button type="submit" class="btn btn-primary">Thêm danh mục</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
 

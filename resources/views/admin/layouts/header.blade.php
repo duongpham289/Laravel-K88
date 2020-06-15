@@ -12,7 +12,7 @@
                         <li><a href="#"><svg class="glyph stroked male-user">
                                     <use xlink:href="#stroked-male-user"></use>
                                 </svg>Thông tin</a></li>
-                        <li><a href="login.html"><svg class="glyph stroked cancel">
+                        <li><a href="login.html" onclick="event.preventDefault();document.getElementById('logout-form').submit()"><svg class="glyph stroked cancel">
                                     <use xlink:href="#stroked-cancel"></use>
                                 </svg> Logout</a></li>
                     </ul>
@@ -22,3 +22,7 @@
     </div><!-- /.container-fluid -->
 </nav>
 <!-- header -->
+
+<form action="/admin/logout/" method="POST" id="logout-form">
+    @csrf
+</form>

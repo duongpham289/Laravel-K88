@@ -5,9 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet">
 
-	<link href="css/styles.css" rel="stylesheet">
+	<link href="/assets/admin/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,10 +17,16 @@
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Log in</div>
 				<div class="panel-body">
-					<form role="form">
+                    @if ($errors->any())
+                     <div class="alert alert-danger">
+                        {{ $errors->first() }}
+                     </div>
+                    @endif
+                    <form role="form" action="/admin/login" method="POST">
+                        @csrf
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" value="{{ old('email') }}">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -30,7 +36,7 @@
 									<input name="remember" type="checkbox" value="Remember Me">Remember Me
 								</label>
 							</div>
-							<a href="index.html" class="btn btn-primary">Login</a>
+							<button class="btn btn-primary">Login</button>
 						</fieldset>
 					</form>
 				</div>

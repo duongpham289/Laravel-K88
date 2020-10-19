@@ -17,16 +17,25 @@
         </div>
     </div>
     <!--/.row-->
+@if ($errors->any())
+<div class="alert alert-danger">
+    {{$errors->first()}}
+</div>
 
+@endif
 
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
+
+                    <form action="/admin/category/{{ $category->id }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                     <div class="row">
                         <div class="col-md-7">
 
-                            @component('admin.layouts.components.alert')
+                            {{-- @component('admin.layouts.components.alert')
                             @slot('type', 'success')
                             @slot('stroke', 'checkmark')
                             Sửa danh mục thành công!
@@ -36,27 +45,28 @@
                             @slot('type', 'danger')
                             @slot('stroke', 'cancel')
                             Danh mục đã tồn tại!
-                            @endcomponent
-
+                            @endcomponent --}}
                             <div class="form-group">
                                 <label for="">Danh mục cha:</label>
                                 <select class="form-control" name="parent">
-                                    <option>----ROOT----</option>
-                                    <option>Nam</option>
-                                    <option>---|Áo khoác nam</option>
-                                    <option>---|---|Áo khoác nam</option>
-                                    <option selected>Nữ</option>
-                                    <option>---|Áo khoác nữ</option>
+                                    <option>---ROOT---</option>
+                                    @include('admin.category.option',['level' =>0])
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Tên Danh mục</label>
                                 <input type="text" class="form-control" name="name" placeholder="Tên danh mục mới"
-                                    value="Áo khoác nữ">
+                                    value="{{ $category->name }}">
                             </div>
+
                             <button class="btn btn-primary">Sửa danh mục</button>
+                        <br/>
+                        @foreach($category->products()->get() as $item)
+                            {{$item->name}}
+                        @endforeach
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
 
